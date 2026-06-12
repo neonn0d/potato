@@ -1,0 +1,27 @@
+{
+  "name": "potato",
+  "version": "0.1.0",
+  "description": "Does this site survive on a potato? Internal tool for testing websites under garbage network and device conditions, live.",
+  "main": "./out/main/index.js",
+  "private": true,
+  "author": "neonn0d <elezi.mentor@gmail.com>",
+  "homepage": "https://github.com/neonn0d/potato",
+  "desktopName": "Potato",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "dist": "electron-vite build && electron-builder"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.5",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.9.1",
+    "preact": "^10.29.2"
+  }
+}

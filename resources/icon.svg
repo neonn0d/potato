@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Potato app icon source. Rasterize: magick -background none resources/icon.svg -resize 512x512 -depth 8 PNG32:resources/icon.png -->
+  <!-- No <g transform>: ImageMagick's internal MSVG renderer mishandles rotate(a cx cy), so the tilt is baked into the path coordinates. -->
+  <rect x="0" y="0" width="512" height="512" rx="96" ry="96" fill="#101010"/>
+  <!-- potato body: lumpy tilted blob, centered -->
+  <path fill="#C8893A" d="M 120 298
+    C 105 240, 125 190, 168 165
+    C 205 143, 250 130, 295 142
+    C 345 155, 392 195, 398 250
+    C 403 298, 378 340, 330 360
+    C 285 379, 225 384, 180 362
+    C 145 345, 128 325, 120 298 Z"/>
+  <!-- soft shading along the lower edge -->
+  <path fill="#A96F2C" d="M 122 310
+    C 140 348, 200 372, 260 368
+    C 315 364, 362 336, 386 296
+    C 380 330, 358 349, 330 360
+    C 285 379, 225 384, 180 362
+    C 150 348, 132 330, 122 310 Z"/>
+  <!-- speckles -->
+  <ellipse cx="202" cy="228" rx="13" ry="9" fill="#8A5A26"/>
+  <ellipse cx="292" cy="198" rx="11" ry="8" fill="#8A5A26"/>
+  <ellipse cx="332" cy="278" rx="12" ry="9" fill="#8A5A26"/>
+  <ellipse cx="244" cy="308" rx="11" ry="8" fill="#8A5A26"/>
+  <ellipse cx="164" cy="288" rx="9" ry="7" fill="#8A5A26"/>
+  <ellipse cx="266" cy="252" rx="8" ry="6" fill="#9A6628"/>
+</svg>
