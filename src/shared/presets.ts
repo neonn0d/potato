@@ -56,6 +56,17 @@ export const PRESETS: Record<Exclude<PresetId, 'custom'>, PresetDef> = {
     cpuRate: 1,
     thresholdMs: 4_000,
     blurb: 'Slow 4G, baseline sanity check'
+  },
+  normal: {
+    id: 'normal',
+    label: 'Normal',
+    // 0 kbps = unthrottled (ThrottleManager sends -1 to CDP = no limit)
+    downKbps: 0,
+    upKbps: 0,
+    latencyMs: 0,
+    cpuRate: 1,
+    thresholdMs: 3_000,
+    blurb: 'No throttling — your real connection, for comparison'
   }
 }
 
@@ -65,6 +76,11 @@ export const PRESET_ORDER: Array<Exclude<PresetId, 'custom'>> = ['raw', 'mashed'
 export function thresholdFor(settings: Settings): number {
   if (settings.preset !== 'custom') return PRESETS[settings.preset].thresholdMs
   return 15_000
+}
+
+/** 0 kbps means "no limit" — both for the Normal preset and custom fields set to 0. */
+export function isUnthrottled(kbps: number): boolean {
+  return kbps <= 0
 }
 
 export interface DeviceProfile {

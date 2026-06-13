@@ -7,7 +7,8 @@ import { selectPreset, settings } from '../store'
  *  there are no custom fields to edit up there). */
 export function PresetPicker({ pane, compact = false }: { pane: PaneId; compact?: boolean }) {
   const s = settings[pane].value
-  const ids: PresetId[] = compact ? [...PRESET_ORDER] : [...PRESET_ORDER, 'custom']
+  // Normal sits under Custom: the potato presets are the point, Normal is the baseline.
+  const ids: PresetId[] = compact ? [...PRESET_ORDER] : [...PRESET_ORDER, 'custom', 'normal']
   return (
     <div class={compact ? 'preset-picker compact' : 'preset-picker'} role="radiogroup">
       {ids.map((id) => {

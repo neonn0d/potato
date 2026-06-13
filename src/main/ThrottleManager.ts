@@ -36,12 +36,14 @@ export class ThrottleManager {
       }
     }
 
-    // Throughput is BYTES/sec; presets are kbps (×125).
+    // Throughput is BYTES/sec; presets are kbps (×125). 0 kbps = unthrottled
+    // (CDP: -1 disables the limit) — used by the Normal preset.
     await send('Network.emulateNetworkConditions', {
       offline: false,
       latency: settings.latencyMs,
-      downloadThroughput: settings.downKbps * KBPS_TO_BYTES_PER_SEC,
-      uploadThroughput: settings.upKbps * KBPS_TO_BYTES_PER_SEC
+      downloadThroughput:
+        settings.downKbps > 0 ? settings.downKbps * KBPS_TO_BYTES_PER_SEC : -1,
+      uploadThroughput: settings.upKbps > 0 ? settings.upKbps * KBPS_TO_BYTES_PER_SEC : -1
     })
     await send('Emulation.setCPUThrottlingRate', { rate: settings.cpuRate })
     await send('Network.setCacheDisabled', { cacheDisabled: !settings.cacheEnabled })

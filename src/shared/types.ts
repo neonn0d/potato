@@ -2,7 +2,7 @@
 // Source of truth: potato-plan.md section C.
 
 export type PaneId = 'left' | 'right'
-export type PresetId = 'raw' | 'mashed' | 'boiled' | 'baked' | 'custom'
+export type PresetId = 'raw' | 'mashed' | 'boiled' | 'baked' | 'custom' | 'normal'
 export type DeviceId = 'none' | 'cheapAndroid' | 'oldIphone'
 export type Verdict = 'proof' | 'died'
 
